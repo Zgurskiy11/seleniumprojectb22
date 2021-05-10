@@ -20,9 +20,16 @@ public class P5_etsySearch_titleVerification {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.etsy.com/");
-       // driver.findElement(By.id("global-enhancements-search-query"));// locating web element
-     //   driver.findElement(By.id("global-enhancements-search-query")).sendKeys("Wooden Spoon");// puts wooden spoon in search box
-        driver.findElement(By.id("global-enhancements-search-query")).sendKeys("Wooden Spoon"+ Keys.ENTER);
+       // driver.findElement(By.id("global-enhancements-search-query"));// locating web element, before we can search
+     //   driver.findElement(By.id("global-enhancements-search-query")).sendKeys("Wooden Spoon");// puts wooden spoon in search box, (entering search value)
+        driver.findElement(By.id("global-enhancements-search-query")).sendKeys("Wooden Spoon"+ Keys.ENTER);// presses enter( can put , instead of + )
+        String expectedTitle="Wooden spoon | Etsy";
+        String actualTitle=driver.getTitle();
+        if (actualTitle.equals(expectedTitle)){
+            System.out.println("passed");
+        }else{
+            System.out.println("failed");
+        }
 
     }
 }
