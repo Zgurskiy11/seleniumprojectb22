@@ -8,10 +8,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class P2_CybertekUrlVerification {
     public static void main(String[] args) {
         /**
-         * TC #2: Cybertekpractice toolverifications
+         * TC #2: Cybertek practice tool verifications
          * 1.Open Chrome browser
          * 2.Go to https://practice.cybertekschool.com
-         * 3.Verify URL containsExpected: cybertekschool
+         * 3.Verify URL contains Expected: cybertekschool
          * 4.Verify title: Expected: Practice
          */
 
@@ -25,7 +25,7 @@ public class P2_CybertekUrlVerification {
         //3-get the page for Chrome.com
         driver.get("http://practice.cybertekschool.com");
         // maximize
-        // driver.manage().window().maximize();
+        driver.manage().window().maximize();
 
         //Verify URL containsExpected: cybertekschool:
         String expectedUrl = "cybertekschool";
