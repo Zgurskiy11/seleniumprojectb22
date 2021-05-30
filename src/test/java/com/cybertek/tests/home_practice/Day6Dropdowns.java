@@ -7,18 +7,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class Day6Dropdowns {
-    static WebDriver driver = WebDriverFactory.getDriver("chrome");
+    WebDriver driver;
 
-
-    @BeforeMethod
-    public static void setup(){
+    @BeforeClass
+    public void setup(){
+        driver= WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get("http://practice.cybertekschool.com/dropdown");
@@ -26,13 +26,13 @@ public class Day6Dropdowns {
     }
 
     @Test
-    public static void test() {
+    public void test() {
         Select select = new Select(driver.findElement(By.id("dropdown")));
         select.selectByVisibleText("Option 1");
     }
 
     @Test
-    public static void test2() {
+    public void test2() {
         Select select = new Select(driver.findElement(By.id("state")));
         select.selectByValue("IL");
         String expected = "Illinois";
@@ -42,7 +42,7 @@ public class Day6Dropdowns {
     }
 
     @Test
-    public static void test3() {
+    public void test3() {
         Select select = new Select(driver.findElement(By.id("state")));
         select.selectByValue("VA");
         String expected = "Virginia";
@@ -52,7 +52,7 @@ public class Day6Dropdowns {
 
 
     @Test
-    public static void test4() {
+    public void test4() {
         Select select = new Select(driver.findElement(By.id("state")));
         select.selectByValue("CA");
         String expected = "California";
@@ -62,7 +62,7 @@ public class Day6Dropdowns {
     }
 
     @Test
-    public static void test5() {
+    public void test5() {
         Select select = new Select(driver.findElement(By.id("year")));
         select.selectByVisibleText("1922");
         String expected = "1922";
@@ -71,7 +71,7 @@ public class Day6Dropdowns {
     }
 
     @Test
-    public static void test6() {
+    public void test6() {
         Select select = new Select(driver.findElement(By.id("month")));
         select.selectByValue("11");
         String expected = "December";
@@ -81,7 +81,7 @@ public class Day6Dropdowns {
     }
 
     @Test
-    public static void test7() {
+    public void test7() {
         Select select = new Select(driver.findElement(By.id("day")));
         select.selectByIndex(0);
         String expected = "1";
@@ -91,7 +91,7 @@ public class Day6Dropdowns {
 
 
     @Test
-    public static void test8() throws InterruptedException {
+    public void test8() throws InterruptedException {
         Select select = new Select(driver.findElement(By.name("Languages")));
         List<WebElement> options = select.getOptions();
         for (WebElement option: options){
@@ -103,29 +103,23 @@ public class Day6Dropdowns {
         }
         select.deselectAll();
 
+
     }
 
     @Test
-    public static void test9()  {
+    public void test9()  {
         WebElement drop = driver.findElement(By.id("dropdownMenuLink"));
         WebElement op = driver.findElement(By.xpath("//a[.='Facebook']"));
         drop.click();
         op.click();
         String expTitle="Facebook - Log In or Sign Up";
         String actTitle = driver.getTitle();
-        if (actTitle.equals(expTitle)) {
-            System.out.println("Test pass");
-        }else{
-            System.out.println("test fail");
-        }
+        Assert.assertEquals(expTitle,actTitle);
     }
-
-
-
     @AfterClass
-    public static void tearDown() throws InterruptedException {
+    public void tearDown() throws InterruptedException {
         Thread.sleep(4000);
-        driver.quit();
+        driver.close();
     }
 
 }

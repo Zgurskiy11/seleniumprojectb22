@@ -15,7 +15,7 @@ public class Day5Tasks {
     WebDriver driver = WebDriverFactory.getDriver("chrome");
 
     @BeforeClass
-    public void beforeClass() {
+    public void beforeMethod() {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
