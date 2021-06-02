@@ -114,7 +114,7 @@ public class Day6Dropdowns {
         op.click();
         String expTitle="Facebook - Log In or Sign Up";
         String actTitle = driver.getTitle();
-        Assert.assertEquals(expTitle,actTitle);
+        Assert.assertEquals(expTitle,actTitle,"***this message if assertion Fails***");
     }
     @AfterClass
     public void tearDown() throws InterruptedException {
