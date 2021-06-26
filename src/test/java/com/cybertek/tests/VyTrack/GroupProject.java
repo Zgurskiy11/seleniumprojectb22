@@ -1,4 +1,4 @@
-package com.cybertek.tests;
+package com.cybertek.tests.VyTrack;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.*;
 import org.testng.Assert;
