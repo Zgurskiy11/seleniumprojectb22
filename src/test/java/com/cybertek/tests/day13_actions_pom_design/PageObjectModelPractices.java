@@ -13,7 +13,7 @@ public class PageObjectModelPractices {
         //1- Go to library
         Driver.getDriver().get("https://library2.cybertekschool.com/login.html");
 
-        // Create object of the class
+        // Create object of the class//
         // When we create the object of "LibraryLoginPage", constructor will automatically
         // initialize driver and object of LibraryLoginPage.
         // Meaning we will be able to use the selenium method through the object of the class.
