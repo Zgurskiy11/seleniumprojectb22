@@ -30,7 +30,7 @@ public class ActionsPractices {
         BrowserUtils.sleep(2);
         x.acceptCookieButton.click();  // x - is our TelerikPage's object. Can use @FindBy buttons now.
 
-BrowserUtils.sleep(3);
+BrowserUtils.sleep(3);//
         //drag and drop:        source.       target.     dont forget .perform!!!!!!!
         actions.dragAndDrop(x.smallCircle,x.bigCircle).perform();
 
